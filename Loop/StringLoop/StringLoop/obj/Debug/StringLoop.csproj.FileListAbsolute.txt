@@ -1,0 +1,6 @@
+C:\Users\sharmi\Documents\GitHub\WarmUp\Loop\StringLoop\StringLoop\bin\Debug\StringLoop.exe.config
+C:\Users\sharmi\Documents\GitHub\WarmUp\Loop\StringLoop\StringLoop\bin\Debug\StringLoop.exe
+C:\Users\sharmi\Documents\GitHub\WarmUp\Loop\StringLoop\StringLoop\bin\Debug\StringLoop.pdb
+C:\Users\sharmi\Documents\GitHub\WarmUp\Loop\StringLoop\StringLoop\obj\Debug\StringLoop.csprojResolveAssemblyReference.cache
+C:\Users\sharmi\Documents\GitHub\WarmUp\Loop\StringLoop\StringLoop\obj\Debug\StringLoop.exe
+C:\Users\sharmi\Documents\GitHub\WarmUp\Loop\StringLoop\StringLoop\obj\Debug\StringLoop.pdb
