@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
 class Node
 {
     public Node left;
@@ -19,10 +21,50 @@ class Solution
         if (root == null || (root.left == null && root.right == null)) return 0;
          int height = 1+Math.Max(getHeight(root.left), getHeight(root.right));
         return height;
-        
-
     }
+    public static void levelOrder(Node root)
+    {
+        var levelVals = new List<int>();
+        var currentQueue = new Queue();
+        var nextQueue = new Queue();
 
+        if (root != null)
+        {
+            currentQueue.Enqueue(root);
+        }
+
+        while (currentQueue.Count > 0)
+        {
+            while (currentQueue.Count > 0)
+            {
+                Node node = (Node)currentQueue.Dequeue();
+                levelVals.Add(node.data);
+                if (node.left != null)
+                {
+                    nextQueue.Enqueue(node.left);
+                }
+
+                if (node.right != null)
+                {
+                    nextQueue.Enqueue(node.right);
+                }
+            }
+            foreach (var node in nextQueue)
+            {
+                currentQueue.Enqueue(node);
+            }
+            nextQueue.Clear();
+        }
+
+      
+var combined = string.Join(" ", levelVals);
+        Console.WriteLine(combined);
+        Console.ReadLine();
+    }
+    
+   
+
+    
 
     static Node insert(Node root, int data)
     {
@@ -57,9 +99,7 @@ class Solution
             int data = Int32.Parse(Console.ReadLine());
             root = insert(root, data);
         }
-        int height = getHeight(root);
-        Console.WriteLine(height);
-
+        levelOrder(root);
     }
 }
 
