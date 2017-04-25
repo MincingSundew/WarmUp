@@ -16,9 +16,35 @@ namespace LinkedList
 
     }
 
+
+
+
+
     class Solution
     {
-            public  static Node insert(Node head, int data)
+
+        public static Node removeDuplicates(Node head)
+        {
+            Node Cur = head;
+            //Write your code here
+            while(Cur.next!=null)
+            {
+                if(Cur.data == Cur.next.data)
+                {
+                    Node temp = Cur;
+                    Cur.next = Cur.next.next;
+                 
+                }
+                else
+                {
+                    Cur = Cur.next;
+                }
+            }
+            return head;
+        }
+
+
+        public  static Node insert(Node head, int data)
         {
             Node temp = new Node(0);
             temp.next = null;           
@@ -60,7 +86,10 @@ namespace LinkedList
                 int data = Int32.Parse(Console.ReadLine());
                 head = insert(head, data);
             }
+            removeDuplicates(head);
             display(head);
+
+           
         }
 
     }
