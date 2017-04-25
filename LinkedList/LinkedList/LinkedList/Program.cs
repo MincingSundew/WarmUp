@@ -25,26 +25,26 @@ namespace LinkedList
 
         public static Node removeDuplicates(Node head)
         {
-            Node Cur = head;
-            //Write your code here
-            while(Cur.next!=null)
+            if (head != null)
             {
-                if(Cur.data == Cur.next.data)
+                Node start = head;
+                while (start != null)
                 {
-                    Node temp = Cur;
-                    Cur.next = Cur.next.next;
-                 
-                }
-                else
-                {
-                    Cur = Cur.next;
+                    if (start.next != null && start.data == start.next.data)
+                    {
+                        start.next = start.next.next;
+                    }
+                    else
+                    {
+                        start = start.next;
+                    }
                 }
             }
             return head;
         }
 
 
-        public  static Node insert(Node head, int data)
+        public static Node insert(Node head, int data)
         {
             Node temp = new Node(0);
             temp.next = null;           
