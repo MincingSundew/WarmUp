@@ -1,5 +1,6 @@
 ﻿using System;
-
+using System.Collections;
+using System.Collections.Generic;
 
 namespace LinkedList
 { 
@@ -16,12 +17,70 @@ namespace LinkedList
 
     }
 
-
-
-
-
     class Solution
     {
+
+        public static Node Partition(Node node, int x)
+        {
+            Node head = node;
+            Node tail = node;
+
+            while(node != null)
+            {
+                if(node.data <x)
+                {
+                    node.next = head;
+                    node = head;
+                }
+                else
+                {
+                    tail.next = node;
+                    tail = node;
+                }
+                node = node.next;
+            }
+            return head;
+        }
+        public static Node removeDuplicatesUnsorted(Node head)
+        {
+            Node Current = head;
+            List<int> ll = new List<int>();
+            Node Previous = new Node(0);
+            while(Current.next != null)
+            {
+                if(ll.Contains(Current.data))
+                {
+                    Previous.next = Current.next;
+                   
+                }
+                else
+                {
+                    ll.Add(Current.data);
+                    Previous = Current;
+                }
+                Current = Current.next;
+            }
+            return head;
+        }
+
+
+        public static Node getKthtoLastElement(Node head, int k)
+        {
+            Node p1 = head;
+            Node p2 = head;
+            for(int i=0; i< k; i++)
+            {
+                p1 = p1.next;
+            }
+
+            while(p1!= null)
+            {
+                p1 = p1.next;
+                p2 = p2.next;
+            }
+
+            return p2;
+        }
 
         public static Node removeDuplicates(Node head)
         {
@@ -72,13 +131,16 @@ namespace LinkedList
             Node start = head;
             while (start != null)
             {
-                Console.Write(start.data + " ");
+                Console.WriteLine(start.data + " ");
+                Console.ReadLine();
                 start = start.next;
             }
         }
+
+       
+
         static void Main(String[] args)
         {
-
             Node head = null;
             int T = Int32.Parse(Console.ReadLine());
             while (T-- > 0)
@@ -86,10 +148,8 @@ namespace LinkedList
                 int data = Int32.Parse(Console.ReadLine());
                 head = insert(head, data);
             }
-            removeDuplicates(head);
-            display(head);
-
-           
+            Node k = Partition(head, 3);
+            display(k);           
         }
 
     }
