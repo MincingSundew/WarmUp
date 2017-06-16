@@ -137,7 +137,35 @@ namespace LinkedList
             }
         }
 
-       
+       public static Node AddTwoLists(Node L1, Node L2)
+        {
+            Node sum = new Node(0);
+            if(L1 == null && L2 != null)
+            {
+                return L2;
+            }
+            else if(L2 == null && L1 != null)
+            {
+                return L1;
+            }
+            else if(L1 == null && L2 == null)
+            {
+                return sum;
+            }
+            else if(L1 != null && L2 !=null)
+            {
+                int carry = 0;
+                int total  = L1.data + L2.data + carry;
+                carry = total / 10;
+                sum.data = total % 10;
+                L1 = L1.next;
+                L2 = L2.next;
+                sum = sum.next;
+
+            }
+
+            return sum;
+        }
 
         static void Main(String[] args)
         {
